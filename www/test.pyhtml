@@ -1,0 +1,92 @@
+<html>
+<html lang=en>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Page Config Module</title>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+	{{ py }}
+	  from settings_modul import SettingsModule
+	  sm = SettingsModule()
+	{{ end }}
+
+	<div class="container">
+    <header class="sticky">
+        <a href="#" class="logo">PFQ Hydroponic</a>
+    </header>
+    <div id="forms-and-input" class="card fluid">
+        <h2 class="section double-padded">Config module</h2>
+
+        <div class="section">
+            <form action="/config" method="post" accept-charset="ISO-8859-1">
+                <fieldset>
+                    <legend class="doc">WIFI AP</legend>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="ap-ssid" class="doc">SSID</label></div>
+                        <div class="col-sm-12 col-md"><input type="text" placeholder="Text" name="ap-ssid" id="ap-ssid"
+                                                             style="width:85%;" class="doc"></div>
+                    </div>
+
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="ap-pwd" class="doc">PWD</label></div>
+                        <div class="col-sm-12 col-md"><input type="text" placeholder="Text" name="ap-pwd" id="ap-pwd"
+                                                             style="width:85%;" class="doc"></div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend class="doc">WIFI CLIENT</legend>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="client-ssid" class="doc">SSID</label></div>
+                        <div class="col-sm-12 col-md"><input type="text" placeholder="Text" name="client-ssid"
+                                                             id="client-ssid"
+                                                             style="width:85%;" class="doc"></div>
+                    </div>
+
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="client-pwd" class="doc">PWD</label></div>
+                        <div class="col-sm-12 col-md"><input type="text" placeholder="Text" name="client-pwd"
+                                                             id="client-pwd"
+                                                             style="width:85%;" class="doc"></div>
+                    </div>
+                </fieldset>
+                <div class="row responsive-label">
+                    <div class="col-sm-12 col-md-3"><label for="update-repository" class="doc">UPDATE REPOSITORY</label>
+                    </div>
+                    <div class="col-sm-12 col-md"><input type="text" placeholder="Text" name="update-repository"
+                                                         id="update-repository"
+                                                         style="width:85%;" class="doc"></div>
+                </div>
+
+                <div class="row responsive-label">
+                    <div class="col-sm-12 col-md-3"><label for="mqtt-url" class="doc">MQTT URL</label></div>
+                    <div class="col-sm-12 col-md"><input type="text" placeholder="Text" name="mqtt-url" id="mqtt-url"
+                                                         style="width:85%;" class="doc"></div>
+                </div>
+
+                <div class="row responsive-label">
+                    <div class="col-sm-12 col-md-3"><label for="description" class="doc">Description</label></div>
+                    <div class="col-sm-12 col-md"><textarea class="doc" style="width:85%;" name="description"
+                                                            id="description" placeholder="Textarea"></textarea></div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-10"></div>
+                    <div class="col-sm-2"><input type="submit" value="Save" class="primary large"/></div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <p>PsyFabriQ DEV 2019</p>
+</footer>
+
+
+  </body>
+</html>
