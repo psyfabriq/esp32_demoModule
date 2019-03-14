@@ -43,6 +43,7 @@ class OTAUpdater:
                 versionfile.close()
 
     def download_and_install_update_if_available(self, ssid, password):
+
         if 'next' in os.listdir(self.module):
             if '.version_on_reboot' in os.listdir(self.modulepath('next')):
                 latest_version = self.get_version(self.modulepath('next'), '.version_on_reboot')

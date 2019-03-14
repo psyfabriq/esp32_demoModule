@@ -1,10 +1,11 @@
-import random
+
 import blink_module
 import time
 import _thread
 from settings_modul import SettingsModule
 
 from network_module import *
+from util_module import genUUID
 
 STATE_IS_CHANGE = False
 DO_FINISH = False
@@ -39,7 +40,7 @@ class LoadConfigState(State):
 
     def doAction(self, context: Context) -> str:
         if self._sm.getSetting(self._sm.GENERAL_CONFIG, 'uuid') is None:
-            uuid = self.genUUID(8)
+            uuid = genUUID(8)
             self._sm.setSetting(self._sm.GENERAL_CONFIG, 'uuid', uuid)
             self._sm.setSetting(self._sm.GENERAL_CONFIG, 'wifi_ap_ssid', 'gmodule-' + uuid)
             self._sm.setSetting(self._sm.GENERAL_CONFIG, 'wifi_ap_pswd', "123456789")
@@ -51,13 +52,6 @@ class LoadConfigState(State):
         context.setNetworkModule(self._nm)
         blink_module.start_blink()
         return 'Config load OK!'
-
-    def genUUID(self, l) -> str:
-        chars = "abcdefghijklmnopqrstuvwxyz1234567890"
-        uuid = ''
-        for c in range(l):
-            uuid += random.choice(chars)
-        return uuid
 
 
 class LoadAPWifiState(State):
