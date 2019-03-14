@@ -80,8 +80,9 @@ class LoadClientWifiState(State):
             sm = context.sm
             ssid = sm.getSetting(sm.GENERAL_CONFIG, 'wifi_client_ssid')
             pwd = sm.getSetting(sm.GENERAL_CONFIG, 'wifi_client_pswd')
-            url = sm.getSetting(sm.GENERAL_CONFIG, 'repo_url')
+            url = sm.getSetting(sm.GENERAL_CONFIG, 'update_url')
             if url is not None:
+                print('Start check update')
                 context.nm.download_and_install_update_if_available(ssid, pwd, url)
             if not context.nm.startWifiClient(ssid, pwd):
                 context.errorState.setMessage('Coud not conect to WiFi', context, context.on_wifi_ap)
@@ -159,9 +160,3 @@ class Context(object):
             print('Context coud not do this')
         DO_FINISH = True
 
-
-if __name__ == '__main__':
-    context = Context()
-    context.startChangeState()
-    print('OUTPUT:')
-    context.changeState(context.on_load)
