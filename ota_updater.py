@@ -6,6 +6,10 @@ import machine
 
 class OTAUpdater:
 
+    """
+    TEST UPDATE
+    """
+
     def __init__(self, github_repo, module='', main_dir='main'):
         self.http_client = HttpClient()
         self.github_repo = github_repo.rstrip('/').replace('https://github.com', 'https://api.github.com/repos')
