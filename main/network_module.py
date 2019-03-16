@@ -1,18 +1,12 @@
 import time
-import esp
 import network
-from machine import Pin
 
-from ota_updater import OTAUpdater
-from settings_modul import SettingsModule
 
-esp.osdebug(None)
+from libs.ota_updater import OTAUpdater
+from main.settings_module import SettingsModule
+from libs.micro_web_srv import MicroWebSrv
 
-import gc
 
-gc.collect()
-
-from micro_web_srv import MicroWebSrv
 
 WEB_SERVER = False
 WIF_AP = False
@@ -125,3 +119,4 @@ class NetworkModule(object):
     def download_and_install_update_if_available(self, ssid: str, pwd: str, url: str):
         o = OTAUpdater(url)
         o.download_and_install_update_if_available(ssid, pwd)
+        time.sleep(5)

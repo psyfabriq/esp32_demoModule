@@ -1,11 +1,12 @@
 
-import blink_module
 import time
 import _thread
-from settings_modul import SettingsModule
 
-from network_module import *
-from util_module import genUUID
+from main import blink_module
+from main.settings_module import SettingsModule
+
+from main.network_module import *
+from main.util_module import genUUID
 
 STATE_IS_CHANGE = False
 DO_FINISH = False
@@ -127,9 +128,9 @@ class Context(object):
         self.on_time_synchronize = LoadSynchronizeTimeState()
         self.sm = None
         self.nm = None
-
-    def startChangeState(self):
+        self.changeState(self.on_load)
         startChangeState(self)
+
 
     def changeState(self, state: State) -> None:
         global STATE_IS_CHANGE

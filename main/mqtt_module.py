@@ -1,0 +1,3 @@
+
+class MqttModule(object):
+    pass

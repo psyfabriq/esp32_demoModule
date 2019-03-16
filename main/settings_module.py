@@ -1,7 +1,6 @@
 import ujson
 import os
 
-
 class SettingsModule(object):
     """This Module Work with EPROM FLash , read and wirte setting app"""
 

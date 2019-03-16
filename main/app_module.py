@@ -1,0 +1,3 @@
+
+class AppModule(object):
+    pass
